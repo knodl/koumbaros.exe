@@ -1,6 +1,7 @@
 name: check-slots
 on:
-  schedule: [{cron: "*/10 * * * *"}]
+  schedule:
+    - cron: "*/10 * * * *"
   workflow_dispatch:
 jobs:
   check:
@@ -8,10 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache/restore@v4
-        with: {path: state.json, key: state-${{ github.run_id }}, restore-keys: state-}
+        with:
+          path: state.json
+          key: state-${{ github.run_id }}
+          restore-keys: state-
       - run: python3 check.py
         env:
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       - uses: actions/cache/save@v4
-        with: {path: state.json, key: state-${{ github.run_id }}
+        with:
+          path: state.json
+          key: state-${{ github.run_id }}
