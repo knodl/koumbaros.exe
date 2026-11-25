@@ -1,7 +1,6 @@
 name: check
+# Scheduled runs moved to Cloudflare Workers (worker.js); kept for manual runs only.
 on:
-  schedule:
-    - cron: "3-33/30 * * * *"  
   workflow_dispatch:
 jobs:
   check:

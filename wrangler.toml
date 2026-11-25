@@ -1,0 +1,9 @@
+name = "koumbaros"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = false
+triggers = { crons = ["*/10 * * * *"] }
+kv_namespaces = [{ binding = "STATE", id = "3458f9ce5fa847199e9085068ee8a97b" }]
+
+[observability]
+enabled = true
